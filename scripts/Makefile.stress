@@ -1,0 +1,15 @@
+host := localhost
+port := 8080
+url_service := http://$(localhost):$(port)/simulator
+
+simple_test:
+	ab -n 10 -c 15 $(url_service)
+
+medium_test:
+	ab -n 100 -c 15 $(url_service)
+
+high_test:
+	ab -n 500 -c 15 $(url_service)
+
+max_test:
+	ab -n 10000 -c 20 $(url_service)
