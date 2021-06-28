@@ -1,12 +1,11 @@
 package com.demo.credit.creditSimulator.consumer;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 public class CreditResponse {
 
-    private boolean isValid;
+    private Boolean isValid;
     private String name;
     private String email;
     private Integer amount;
