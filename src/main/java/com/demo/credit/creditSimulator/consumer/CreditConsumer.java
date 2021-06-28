@@ -20,13 +20,12 @@ public class CreditConsumer {
     private Map<String, Ranges> quotasRanges;
     private Map<String, Ranges> incomeRanges;
 
-    public CreditConsumer(@NonNull String name, String email, Integer amount, Integer quotas, Integer income) {
+    public CreditConsumer(@NonNull String name,@NonNull  String email,@NonNull  Integer amount,@NonNull  Integer quotas,@NonNull  Integer income) {
         this.name = name;
         this.email = email;
         this.amount = amount;
         this.quotas = quotas;
         this.income = income;
-        prepareRanges();
     }
 
     private void prepareRanges() {
@@ -50,6 +49,7 @@ public class CreditConsumer {
     }
 
     public boolean evaluate() {
+        this.prepareRanges();
         //check amount = R1 , quotas = R1-3, income = R1
         return checkRange(amount, this.amountRanges, "R1", "R2", "R3")
                 && checkRange(quotas, this.quotasRanges, "R1", "R2", "R3")

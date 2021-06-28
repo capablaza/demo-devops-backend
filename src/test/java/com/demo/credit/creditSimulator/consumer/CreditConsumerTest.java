@@ -33,8 +33,6 @@ public class CreditConsumerTest {
 
         CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
 
-        // check that all fields has at least data
-        assertThat(consumer).hasNoNullFieldsOrProperties();
 
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isTrue();
@@ -51,9 +49,6 @@ public class CreditConsumerTest {
 
         CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
 
-        // check that all fields has at least data
-        assertThat(consumer).hasNoNullFieldsOrProperties();
-
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isTrue();
     }
@@ -68,9 +63,6 @@ public class CreditConsumerTest {
         Integer income = 900000;
 
         CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
-
-        // check that all fields has at least data
-        assertThat(consumer).hasNoNullFieldsOrProperties();
 
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isTrue();

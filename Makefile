@@ -1,9 +1,9 @@
-service-name := api-billionaries
+service-name := credit-simulator-api
 image := $(service-name)-img
 container := $(service-name)-con
 port_in := 8080
-port_out := 8080
-jar_name := demo-0.0.1.jar
+port_out := 4100
+jar_name := creditSimulator-0.0.1.jar
 docker_memory := 1024MB
 java_memory := -Xmx1024m
 
