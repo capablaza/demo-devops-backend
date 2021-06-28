@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("simulator")
 public class ConsumerController {
 
-    @GetMapping
+    @PostMapping
     public CreditResponse simulate(@RequestBody CreditConsumer consumer) {
         CreditResponse response = new CreditResponse();
         response.loadValues(consumer, consumer.evaluate());
