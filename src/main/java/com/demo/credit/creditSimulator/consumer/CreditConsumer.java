@@ -36,7 +36,7 @@ public class CreditConsumer {
     private void prepareRanges() {
         rules.add(new SimulationRule(100000, 1000000, 3, 36, 300000, 1000000));
         rules.add(new SimulationRule(100000, 3000000, 3, 36, 500000, 1000000));
-        rules.add(new SimulationRule(300000, 1000000, 13, 36, 500000, 1000000));
+        rules.add(new SimulationRule(300000, 5000000, 13, 36, 500000, 1000000));
     }
 
     public boolean evaluate() {
