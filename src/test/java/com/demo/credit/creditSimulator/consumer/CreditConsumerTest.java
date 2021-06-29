@@ -22,49 +22,89 @@ public class CreditConsumerTest {
 
     }
 
+    //Check approve evaluation according range rules
     @Test
-    public void givenAmount300000WhenQuotaIs6AndIncomeIs500000ThenOk(){
-        //Test first range rules
+    public void test1(){
+        //check first range test case
         String name = "peter";
         String email = "peter@email.com";
-        Integer amount = 300000;
-        Integer quotas = 6;
-        Integer income = 600000;
-
+        Integer amount = 150000; // $150.000
+        Integer quotas = 5;
+        Integer income = 1000000; // $1.000.000
         CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
-
 
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isTrue();
     }
 
     @Test
-    public void givenAmount1500000WhenQuotaIs18AndIncomeIs800000ThenOk(){
-        //Test second range rules
+    public void test2(){
+        //check second range test case
         String name = "peter";
         String email = "peter@email.com";
-        Integer amount = 1500000;
+        Integer amount = 1500000; // $1.500.000
+        Integer quotas = 15;
+        Integer income = 1000000; // $1.000.000
+        CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
+
+        //check evaluation that's correct
+        assertThat(consumer.evaluate()).isTrue();
+    }
+
+    @Test
+    public void test3(){
+        //check third range test case
+        String name = "peter";
+        String email = "peter@email.com";
+        Integer amount = 350000; // $3.500.000
         Integer quotas = 18;
-        Integer income = 800000;
-
+        Integer income = 1000000; // $800.000
         CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
 
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isTrue();
     }
 
+    //Check reject evaluation according range rules
     @Test
-    public void givenAmount3500000WhenQuotaIs20AndIncomeIs900000ThenOk(){
-        //Test second range rules
+    public void test4(){
+        //check first range test case
         String name = "peter";
         String email = "peter@email.com";
-        Integer amount = 3500000;
-        Integer quotas = 20;
-        Integer income = 900000;
-
+        Integer amount = 300000; // $300.000
+        Integer quotas = 2;
+        Integer income = 1000000; // $1.000.000
         CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
 
         //check evaluation that's correct
-        assertThat(consumer.evaluate()).isTrue();
+        assertThat(consumer.evaluate()).isFalse();
+    }
+
+    @Test
+    public void test5(){
+        //check second range test case
+        String name = "peter";
+        String email = "peter@email.com";
+        Integer amount = 1500000; // $1.500.000
+        Integer quotas = 15;
+        Integer income = 300000; // $300.000
+        CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
+
+        //check evaluation that's correct
+        assertThat(consumer.evaluate()).isFalse();
+    }
+
+    @Test
+    public void test6(){
+        //check third range test case
+        String name = "peter";
+        String email = "peter@email.com";
+        Integer amount = 3500000; // $3.500.000
+        Integer quotas = 9;
+        Integer income = 800000; // $800.000
+        CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
+
+        //check evaluation that's correct
+        assertThat(consumer.evaluate()).isFalse();
     }
 }

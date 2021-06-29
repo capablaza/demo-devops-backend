@@ -8,4 +8,8 @@ import lombok.Getter;
 public class Ranges {
     private Integer start;
     private Integer end;
+
+    public boolean checkInterval(int valueToCompare) {
+        return (valueToCompare >= start && valueToCompare <= end);
+    }
 }
